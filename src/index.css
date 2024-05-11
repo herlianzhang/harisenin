@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #181a1c;
+}
+
+@layer utilities {
+  .h1-bold {
+    @apply font-lato text-[48px] font-bold;
+  }
+  .h3-bold {
+    @apply font-lato text-[32px] font-bold;
+  }
+  .h4-bold {
+    @apply font-lato text-[24px] font-bold;
+  }
+  .h5-bold {
+    @apply font-lato text-[20px] font-bold;
+  }
+  .h6-bold {
+    @apply font-lato text-[18px] font-bold;
+  }
+  .body-large-regular {
+    @apply font-lato text-[18px] font-normal;
+  }
+  .body-large-bold {
+    @apply font-lato text-[18px] font-bold;
+  }
+  .body-large-medium {
+    @apply font-lato text-[18px] font-medium;
+  }
+  .body-medium-regular {
+    @apply font-lato text-[16px] font-normal;
+  }
+  .body-medium-medium {
+    @apply font-lato text-[16px] font-medium;
+  }
+  .body-small-regular {
+    @apply font-lato text-[14px] font-normal;
+  }
+  .body-small-bold {
+    @apply font-lato text-[14px] font-bold;
+  }
+  .caption1-bold {
+    @apply font-lato text-[12px] font-bold;
+  }
+  .caption1-regular {
+    @apply font-lato text-[12px] font-normal;
+  }
+  .caption1-medium {
+    @apply font-lato text-[12px] font-medium;
+  }
+  .caption2-regular {
+    @apply font-lato text-[10px] font-normal;
+  }
+  .caption2-medium {
+    @apply font-lato text-[10px] font-medium;
+  }
+  .caption2-semibold {
+    @apply font-lato text-[10px] font-semibold;
+  }
+  .extra1-regular {
+    @apply font-lato text-[6.69px] font-normal;
+  }
+  .extra2-bold {
+    @apply font-lato text-[5.74px] font-bold;
+  }
+
+  .copyright {
+    @apply font-poppins text-[16px] max-sm:text-[12px] text-text-light-secondary;
+  }
+  .navigation-link {
+    @apply shrink-0 body-large-medium font-normal max-sm:caption2-medium text-text-light-primary;
+  }
+  .background-gradient {
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 16.89%,
+      rgba(16, 18, 19, 0.86) 59.37%,
+      #181a1c 100%
+    );
+  }
+  .card-gradient {
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 37.04%,
+      rgba(0, 0, 0, 0.5) 100%
+    );
+  }
+  .button-full {
+    @apply gap-[20px] max-sm:gap-[12px] w-full py-[14px] max-sm:py-[8px];
+  }
+  .button-fit {
+    @apply px-[26px] gap-[10px] py-[10px] max-sm:px-[12px] max-sm:py-[4px] max-sm:gap-[8px];
+  }
+
+  /* Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
