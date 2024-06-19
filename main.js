@@ -195,6 +195,9 @@ function prettifyDueDate(task) {
 
     if (diffMs > 0) {
         if (diffMinutes < 60) {
+            if (diffMinutes == 0) {
+                return `Due in less than a minute`;
+            }
             return `Due in ${diffMinutes} minute${
                 diffMinutes !== 1 ? "s" : ""
             }`;
@@ -209,9 +212,6 @@ function prettifyDueDate(task) {
         const overdueDays = Math.abs(diffDays);
 
         if (overdueMinutes < 60) {
-            if (overdueMinutes == 0) {
-                return `Due in less than a minute`;
-            }
             return `Overdue by ${overdueMinutes} minute${
                 overdueMinutes !== 1 ? "s" : ""
             }`;
@@ -228,7 +228,7 @@ function prettifyDueDate(task) {
 }
 
 function getDueDate(task) {
-    const dueDate = new Date();
+    const dueDate = new Date(task.createdAt);
     let increaseMinute = 0;
     switch (task.priority) {
         case "low":
@@ -245,6 +245,6 @@ function getDueDate(task) {
             break;
     }
     let createdDate = new Date(task.createdAt);
-    dueDate.setMinutes(createdDate.getMinutes() + increaseMinute);
+    dueDate.setMinutes(dueDate.getMinutes() + increaseMinute);
     return dueDate;
 }
