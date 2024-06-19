@@ -8,4 +8,4 @@
 
 ### !App will check task due time every 10 second
 
-### !Task stored on memory so don't refresh the page
+### !Task stored on LocalStorage

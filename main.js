@@ -1,5 +1,7 @@
-let alltasks = [];
 let taskSections = [];
+let alltasksJSON = localStorage.getItem("alltasks");
+let alltasks = alltasksJSON ? JSON.parse(alltasksJSON) : [];
+constructTaskList();
 
 // task role
 // low - 1 minute
@@ -35,7 +37,7 @@ document.getElementById("submit").addEventListener("click", function (e) {
     alltasks.push({
         id: alltasks.length,
         task: task,
-        createdAt: new Date(),
+        createdAt: new Date().toString(),
         priority: priority,
         completed: false,
         profile: {
@@ -45,6 +47,7 @@ document.getElementById("submit").addEventListener("click", function (e) {
     });
     constructTaskList();
     taskElement.value = "";
+    localStorage.setItem("alltasks", JSON.stringify(alltasks));
 });
 
 document.getElementById("clear").addEventListener("click", function (e) {
@@ -52,6 +55,7 @@ document.getElementById("clear").addEventListener("click", function (e) {
     if (confirm("Are you sure you want to clear all tasks?")) {
         alltasks = [];
         constructTaskList();
+        localStorage.removeItem("alltasks");
     }
 });
 
@@ -139,6 +143,7 @@ function handleCheckboxClick(id) {
             task.completed = true;
         }
     });
+    localStorage.setItem("alltasks", JSON.stringify(alltasks));
     constructTaskList();
 }
 
@@ -239,6 +244,7 @@ function getDueDate(task) {
             increaseMinute = 0;
             break;
     }
-    dueDate.setMinutes(task.createdAt.getMinutes() + increaseMinute);
+    let createdDate = new Date(task.createdAt);
+    dueDate.setMinutes(createdDate.getMinutes() + increaseMinute);
     return dueDate;
 }
