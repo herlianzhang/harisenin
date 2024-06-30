@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    background-color: #fffdf3;
+}
+
+@layer utilities {
+    .heading1 {
+        @apply font-lato font-bold text-[48px];
+    }
+
+    .heading2 {
+        @apply font-lato font-bold text-[40px];
+    }
+
+    .heading3 {
+        @apply font-lato font-bold text-[32px];
+    }
+
+    .heading4 {
+        @apply font-lato font-bold text-[24px];
+    }
+
+    .heading5 {
+        @apply font-lato font-bold text-[20px];
+    }
+
+    .heading6 {
+        @apply font-lato font-bold text-[18px];
+    }
+
+    .bodyLargeBold {
+        @apply font-sans font-bold text-[18px];
+    }
+
+    .bodyLargeSemibold {
+        @apply font-sans font-semibold text-[18px];
+    }
+
+    .bodyLargeMedium {
+        @apply font-sans font-medium text-[18px];
+    }
+
+    .bodyLargeRegular {
+        @apply font-sans font-normal text-[18px];
+    }
+
+    .bodyMediumBold {
+        @apply font-sans font-bold text-[16px];
+    }
+
+    .bodyMediumSemibold {
+        @apply font-sans font-semibold text-[16px];
+    }
+
+    .bodyMediumMedium {
+        @apply font-sans font-medium text-[16px];
+    }
+
+    .bodyMediumRegular {
+        @apply font-sans font-normal text-[16px];
+    }
+
+    .bodySmallBold {
+        @apply font-sans font-bold text-[14px];
+    }
+
+    .bodySmallSemibold {
+        @apply font-sans font-semibold text-[14px];
+    }
+
+    .bodySmallMedium {
+        @apply font-sans font-medium text-[14px];
+    }
+
+    .bodySmallRegular {
+        @apply font-sans font-normal text-[14px];
+    }
+}
