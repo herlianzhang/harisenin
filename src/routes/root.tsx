@@ -17,7 +17,7 @@ const Root = () => {
                 {isNotLoginOrRegister && <>1234</>}
             </nav>
             <Outlet />
-            <footer>Footer</footer>
+            {isNotLoginOrRegister && <footer>Footer</footer>}
         </div>
     );
 };
