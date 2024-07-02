@@ -9,6 +9,8 @@ import {
 
 import eye from "@/assets/eye.png";
 import eyeOff from "@/assets/eye-off.png";
+import indonesia from "@/assets/indonesia.png";
+import dropdown from "@/assets/dropdown.svg";
 import { useState } from "react";
 
 interface Props {
@@ -33,25 +35,46 @@ const TextField = ({ control, name, label, type, required = false }: Props) => {
                         {required && <span className="text-[#D32E1F]">*</span>}
                     </FormLabel>
                     <FormControl>
-                        <div className="border-[1px] rounded-[6px] border-[#F1F1F1] flex items-center h-[48px] px-[10px]">
-                            <Input
-                                type={
-                                    type === "password" && showPassword
-                                        ? "text"
-                                        : type
-                                }
-                                className="bodyMediumRegular max-sm:bodySmallRegular border-none focus-visible:border-none focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0 !important p-0"
-                                {...field}
-                            />
-                            {type === "password" && (
-                                <img
-                                    src={showPassword ? eye : eyeOff}
-                                    className="h-[24px] w-[24px] cursor-pointer"
-                                    onClick={() =>
-                                        setShowPassword(!showPassword)
-                                    }
-                                />
+                        <div className="flex h-[48px] gap-6 max-sm:gap-3">
+                            {type === "tel" && (
+                                <div className="flex border-[1px] rounded-[6px] border-other-border">
+                                    <div className="px-[10px] bg-other-background-base flex">
+                                        <img
+                                            src={indonesia}
+                                            className="w-[24px] h-[24px] my-auto"
+                                        />
+                                    </div>
+                                    <div className="flex items-center px-[10px] py-1 gap-2">
+                                        <p className="bodyMediumRegular max-sm:bodySmallRegular text-text-dark-primary w-[60px] max-sm:w-fit">
+                                            +62
+                                        </p>
+                                        <img
+                                            src={dropdown}
+                                            className="w-[24px] h-[24px]"
+                                        />
+                                    </div>
+                                </div>
                             )}
+                            <div className="flex-1 border-[1px] rounded-[6px] border-other-border flex items-center px-[10px]">
+                                <Input
+                                    type={
+                                        type === "password" && showPassword
+                                            ? "text"
+                                            : type
+                                    }
+                                    className="bodyMediumRegular max-sm:bodySmallRegular border-none focus-visible:border-none focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0 !important p-0"
+                                    {...field}
+                                />
+                                {type === "password" && (
+                                    <img
+                                        src={showPassword ? eye : eyeOff}
+                                        className="h-[24px] w-[24px] cursor-pointer"
+                                        onClick={() =>
+                                            setShowPassword(!showPassword)
+                                        }
+                                    />
+                                )}
+                            </div>
                         </div>
                     </FormControl>
                     <FormMessage />

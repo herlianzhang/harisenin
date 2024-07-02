@@ -35,15 +35,10 @@ const Login = () => {
     }
 
     return (
-        <LoginRegisterCard>
-            <div className="flex flex-col items-center gap-[10px]">
-                <h3 className="heading3 text-text-dark-primary max-sm:heading4">
-                    Masuk ke Akun
-                </h3>
-                <p className="bodyMediumRegular text-text-dark-secondary max-sm:bodySmallRegular">
-                    Yuk, lanjutin belajar di videobelajar.
-                </p>
-            </div>
+        <LoginRegisterCard
+            title="Masuk ke Akun"
+            subtitle="Yuk, lanjutin belajar di videobelajar."
+        >
             <Form {...form}>
                 <form
                     onSubmit={form.handleSubmit(onSubmit)}
@@ -52,7 +47,7 @@ const Login = () => {
                     <TextField
                         control={form.control}
                         name="email"
-                        label="E-mail"
+                        label="E-Mail"
                         type="email"
                         required
                     />
@@ -63,8 +58,8 @@ const Login = () => {
                         type="password"
                         required
                     />
-                    <p className="mb-2 max-sm:mb-3 cursor-pointer ml-auto text-[#4A505C] bodyMediumMedium bodySmallMedium">
-                        Lupa Password
+                    <p className="mb-2 max-sm:mb-3 cursor-pointer ml-auto text-[#4A505C] bodyMediumMedium max-sm:bodySmallMedium">
+                        Lupa Password?
                     </p>
                     <DButton
                         title="Masuk"
