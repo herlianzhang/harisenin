@@ -1,3 +1,5 @@
+import Footer from "@/components/Footer";
+import Nav from "@/components/Nav";
 import { Outlet, useLocation } from "react-router-dom";
 
 const Root = () => {
@@ -8,16 +10,9 @@ const Root = () => {
 
     return (
         <div className="min-h-screen flex flex-col">
-            <nav className="sticky top-0 bg-other-background-primary border-b border-other-border py-3 px-[120px] flex justify-between items-center max-sm:py-4 max-sm:px-6">
-                <img
-                    src="/Logo.svg"
-                    className="h-[56px] w-[237px] max-sm:h-[42px] max-sm:w-[152px]"
-                    alt="logo"
-                />
-                {isNotLoginOrRegister && <>1234</>}
-            </nav>
+            <Nav isNotLoginOrRegister={isNotLoginOrRegister} />
             <Outlet />
-            {isNotLoginOrRegister && <footer>Footer</footer>}
+            {isNotLoginOrRegister && <Footer />}
         </div>
     );
 };

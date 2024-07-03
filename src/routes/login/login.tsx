@@ -42,7 +42,7 @@ const Login = () => {
             <Form {...form}>
                 <form
                     onSubmit={form.handleSubmit(onSubmit)}
-                    className="w-full flex flex-col gap-4 max-sm:gap-3"
+                    className="w-full flex flex-col gap-4 max-md:gap-3"
                 >
                     <TextField
                         control={form.control}
@@ -58,14 +58,14 @@ const Login = () => {
                         type="password"
                         required
                     />
-                    <p className="mb-2 max-sm:mb-3 cursor-pointer ml-auto text-[#4A505C] bodyMediumMedium max-sm:bodySmallMedium">
+                    <p className="mb-2 max-md:mb-3 cursor-pointer ml-auto text-[#4A505C] bodyMediumMedium max-md:bodySmallMedium">
                         Lupa Password?
                     </p>
                     <DButton
                         title="Masuk"
                         style="primary"
                         type="submit"
-                        otherClasses="max-sm:mb-1"
+                        otherClasses="max-md:mb-1"
                     />
                     <DButton
                         title="Daftar"

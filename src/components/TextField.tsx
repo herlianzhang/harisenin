@@ -30,12 +30,12 @@ const TextField = ({ control, name, label, type, required = false }: Props) => {
             name={name}
             render={({ field }) => (
                 <FormItem className="space-y-1">
-                    <FormLabel className="bodyMediumRegular text-[#4A505C] max-sm:bodySmallRegular">
+                    <FormLabel className="bodyMediumRegular text-[#4A505C] max-md:bodySmallRegular">
                         {label}{" "}
                         {required && <span className="text-[#D32E1F]">*</span>}
                     </FormLabel>
                     <FormControl>
-                        <div className="flex h-[48px] gap-6 max-sm:gap-3">
+                        <div className="flex h-[48px] gap-6 max-md:gap-3">
                             {type === "tel" && (
                                 <div className="flex border-[1px] rounded-[6px] border-other-border">
                                     <div className="px-[10px] bg-other-background-base flex">
@@ -45,7 +45,7 @@ const TextField = ({ control, name, label, type, required = false }: Props) => {
                                         />
                                     </div>
                                     <div className="flex items-center px-[10px] py-1 gap-2">
-                                        <p className="bodyMediumRegular max-sm:bodySmallRegular text-text-dark-primary w-[60px] max-sm:w-fit">
+                                        <p className="bodyMediumRegular max-md:bodySmallRegular text-text-dark-primary w-[60px] max-md:w-fit">
                                             +62
                                         </p>
                                         <img
@@ -62,7 +62,7 @@ const TextField = ({ control, name, label, type, required = false }: Props) => {
                                             ? "text"
                                             : type
                                     }
-                                    className="bodyMediumRegular max-sm:bodySmallRegular border-none focus-visible:border-none focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0 !important p-0"
+                                    className="bodyMediumRegular max-md:bodySmallRegular border-none focus-visible:border-none focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0 !important p-0"
                                     {...field}
                                 />
                                 {type === "password" && (

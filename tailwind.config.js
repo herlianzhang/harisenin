@@ -3,6 +3,9 @@ export default {
     content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
     theme: {
         extend: {
+            boxShadow: {
+                'navbar': '4px 8px 12px 0px #3E434A26'
+            },
             fontFamily: {
                 lato: ["Lato", "sans-serif"],
                 sans: ["DM Sans", "sans-serif"],
