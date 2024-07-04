@@ -40,7 +40,7 @@ const ClassCard = ({ item }: Props) => {
     };
 
     return (
-        <div className="flex flex-col p-[20px] border border-other-border rounded-[10px] bg-other-background-primary gap-4 max-lg:gap-2">
+        <div className="flex flex-col p-[20px] border border-other-border rounded-[10px] bg-other-background-primary gap-4 max-lg:gap-2 max-lg:p-4">
             <div className="flex flex-col gap-4 max-lg:flex-row max-lg:items-center max-lg:gap-3">
                 <img
                     src={item.background}
