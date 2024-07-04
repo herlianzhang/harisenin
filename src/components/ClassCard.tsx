@@ -1,8 +1,6 @@
-import { useEffect, useState } from "react";
 import star from "@/assets/star.svg";
 import unfilledstar from "@/assets/unfilledstar.svg";
 import halfstar from "@/assets/halfstar.svg";
-import linkedin from "@/assets/linkedin.svg";
 
 interface Props {
     item: {
