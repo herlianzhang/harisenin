@@ -34,7 +34,7 @@ const DButton = ({
         <Button
             onClick={onClick}
             type={type}
-            className={`bodyMediumBold max-md:bodySmallBold hover:${background} rounded-[10px] px-[26px] max-md:px-[22px] py-[10px] max-md:py-[7px] gap-2 ${border} ${text} ${background} ${otherClasses}`}
+            className={`bodyMediumBold max-md:bodySmallBold hover:${background} rounded-[10px] px-[26px] max-md:px-[22px] py-[10px] max-md:py-[7px] gap-2 line-clamp-1 ${border} ${text} ${background} ${otherClasses}`}
         >
             {imageSrc != undefined && (
                 <img src={imageSrc} className="h-[20px] w-[20px]" />

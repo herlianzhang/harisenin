@@ -76,6 +76,7 @@ export default {
                     hover: "#DB3D1F",
                     background: "#FCE3D1"
                 },
+                card: "rgba(0, 0, 0, 0.8)"
             }
         },
     },
