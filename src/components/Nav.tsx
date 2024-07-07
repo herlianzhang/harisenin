@@ -75,6 +75,7 @@ const Nav = ({ isNotLoginOrRegister }: Props) => {
                     <div className="hidden z-30 max-md:flex flex-col bg-white py-1">
                         {menus.map((menu) => (
                             <Link
+                                key={menu.name}
                                 to={menu.navigate}
                                 className="flex gap-[5px] py-4 px-3 items-center border-b border-text-dark-primary"
                             >

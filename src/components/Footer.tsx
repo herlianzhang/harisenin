@@ -5,6 +5,7 @@ import instagram from "@/assets/instagram.svg";
 import twitter from "@/assets/twitter.svg";
 import arrowRight from "@/assets/arrowRight.svg";
 import { Link } from "react-router-dom";
+import * as uuid from "uuid";
 
 const Footer = () => {
     const socialMedias = [
@@ -113,13 +114,16 @@ const Footer = () => {
                 </div>
                 <div className="flex justify-start gap-12 max-md:flex-col max-md:gap-3 max-md:w-full">
                     {footerSubLinks.map((sublink) => (
-                        <>
-                            <div className="flex flex-col gap-3 max-md:hidden">
+                        <div key={uuid.v4()}>
+                            <div
+                                className="flex flex-col gap-3 max-md:hidden"
+                            >
                                 <p className="bodyMediumBold text-text-dark-primary mb-1">
                                     {sublink.title}
                                 </p>
                                 {sublink.links.map((link) => (
                                     <Link
+                                        key={uuid.v4()}
                                         to={link.navigation}
                                         className="bodyMediumMedium text-text-dark-secondary"
                                     >
@@ -131,7 +135,7 @@ const Footer = () => {
                                 <p className="bodyLargeBold">{sublink.title}</p>
                                 <img src={arrowRight} />
                             </div>
-                        </>
+                        </div>
                     ))}
                 </div>
             </div>
@@ -145,6 +149,7 @@ const Footer = () => {
                 <div className="flex gap-[15px]">
                     {socialMedias.map((socialMedia) => (
                         <Link
+                            key={uuid.v4()}
                             to={socialMedia.navigation}
                             className="p-2 rounded-full border-[1.5px] border-other-border w-[35px] h-[35px]"
                         >

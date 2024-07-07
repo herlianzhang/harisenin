@@ -1,24 +1,11 @@
-import content1 from "@/assets/contents/background/content1.png";
-import content2 from "@/assets/contents/background/content2.jpeg";
-import content3 from "@/assets/contents/background/content3.jpeg";
-import content4 from "@/assets/contents/background/content4.jpeg";
-import content5 from "@/assets/contents/background/content5.jpeg";
-import content6 from "@/assets/contents/background/content6.jpeg";
-import content7 from "@/assets/contents/background/content7.jpeg";
-import content8 from "@/assets/contents/background/content8.jpeg";
-import content9 from "@/assets/contents/background/content9.jpeg";
-import avatar1 from "@/assets/contents/avatar/avatar1.png";
-import avatar2 from "@/assets/contents/avatar/avatar2.png";
-import avatar3 from "@/assets/contents/avatar/avatar3.png";
-import avatar4 from "@/assets/contents/avatar/avatar4.png";
-import avatar5 from "@/assets/contents/avatar/avatar5.png";
-import avatar6 from "@/assets/contents/avatar/avatar6.png";
-import avatar7 from "@/assets/contents/avatar/avatar7.png";
-import avatar8 from "@/assets/contents/avatar/avatar8.png";
-import avatar9 from "@/assets/contents/avatar/avatar9.png";
 import ClassCard from "./ClassCard";
+import { Sheet, SheetTrigger } from "@/components/ui/sheet";
+import ClassForm from "./ClassForm";
+import { ClassData } from "@/lib/ClassData";
+import { useEffect, useState } from "react";
 
 const ClassContents = () => {
+    const [isCreateFormOpen, setIsCreateFormOpen] = useState(false);
     const categories = [
         "Semua Kelas",
         "Pemasaran",
@@ -27,162 +14,34 @@ const ClassContents = () => {
         "Bisnis",
     ];
     const selected = categories[0];
+    const [allClasses, setAllClasses] = useState<ClassData[]>(
+        JSON.parse(localStorage.getItem("classes") || "[]")
+    );
 
-    const allClasses = [
-        {
-            background: content1,
-            title: "Big 4 Auditor Financial Analyst",
-            description:
-                "Mulai transformasi dengan instruktur profesional, harga yang terjangkau, dan kurikulum terbaik",
-            instructor: {
-                name: "Jenna Ortega",
-                job: "Senior Accountant",
-                company: "Gojek",
-                avatar: avatar1,
-            },
-            rating: {
-                value: 3.5,
-                from: 86,
-            },
-            price: 300000,
-        },
-        {
-            background: content2,
-            title: "Big 4 Auditor Financial Analyst",
-            description:
-                "Mulai transformasi dengan instruktur profesional, harga yang terjangkau, dan kurikulum terbaik",
-            instructor: {
-                name: "Jenna Ortega",
-                job: "Senior Accountant",
-                company: "Gojek",
-                avatar: avatar2,
-            },
-            rating: {
-                value: 3.5,
-                from: 86,
-            },
-            price: 300000,
-        },
-        {
-            background: content3,
-            title: "Big 4 Auditor Financial Analyst",
-            description:
-                "Mulai transformasi dengan instruktur profesional, harga yang terjangkau, dan kurikulum terbaik",
-            instructor: {
-                name: "Jenna Ortega",
-                job: "Senior Accountant",
-                company: "Gojek",
-                avatar: avatar3,
-            },
-            rating: {
-                value: 3.5,
-                from: 86,
-            },
-            price: 300000,
-        },
-        {
-            background: content4,
-            title: "Big 4 Auditor Financial Analyst",
-            description:
-                "Mulai transformasi dengan instruktur profesional, harga yang terjangkau, dan kurikulum terbaik",
-            instructor: {
-                name: "Jenna Ortega",
-                job: "Senior Accountant",
-                company: "Gojek",
-                avatar: avatar4,
-            },
-            rating: {
-                value: 3.5,
-                from: 86,
-            },
-            price: 300000,
-        },
-        {
-            background: content5,
-            title: "Big 4 Auditor Financial Analyst",
-            description:
-                "Mulai transformasi dengan instruktur profesional, harga yang terjangkau, dan kurikulum terbaik",
-            instructor: {
-                name: "Jenna Ortega",
-                job: "Senior Accountant",
-                company: "Gojek",
-                avatar: avatar5,
-            },
-            rating: {
-                value: 3.5,
-                from: 86,
-            },
-            price: 300000,
-        },
-        {
-            background: content6,
-            title: "Big 4 Auditor Financial Analyst",
-            description:
-                "Mulai transformasi dengan instruktur profesional, harga yang terjangkau, dan kurikulum terbaik",
-            instructor: {
-                name: "Jenna Ortega",
-                job: "Senior Accountant",
-                company: "Gojek",
-                avatar: avatar6,
-            },
-            rating: {
-                value: 3.5,
-                from: 86,
-            },
-            price: 300000,
-        },
-        {
-            background: content7,
-            title: "Big 4 Auditor Financial Analyst",
-            description:
-                "Mulai transformasi dengan instruktur profesional, harga yang terjangkau, dan kurikulum terbaik",
-            instructor: {
-                name: "",
-                job: "Senior Accountant",
-                company: "Gojek",
-                avatar: avatar7,
-            },
-            rating: {
-                value: 3.5,
-                from: 86,
-            },
-            price: 300000,
-        },
-        {
-            background: content8,
-            title: "Big 4 Auditor Financial Analyst",
-            description:
-                "Mulai transformasi dengan instruktur profesional, harga yang terjangkau, dan kurikulum terbaik",
-            instructor: {
-                name: "Jenna Ortega",
-                job: "Senior Accountant",
-                company: "Gojek",
-                avatar: avatar8,
-            },
-            rating: {
-                value: 3.5,
-                from: 86,
-            },
-            price: 300000,
-        },
-        {
-            background: content9,
-            title: "Big 4 Auditor Financial Analyst",
-            description:
-                "Mulai transformasi dengan instruktur profesional, harga yang terjangkau, dan kurikulum terbaik",
-            instructor: {
-                name: "Jenna Ortega",
-                job: "Senior Accountant",
-                company: "Gojek",
-                avatar: avatar9,
-            },
-            rating: {
-                value: 3.5,
-                from: 86,
-            },
-            price: 300000,
-        },
-    ];
+    useEffect(() => {
+        localStorage.setItem("classes", JSON.stringify(allClasses));
+    }, [allClasses]);
+
+    const createClass = (data: ClassData) => {
+        setAllClasses([...allClasses, data]);
+        setIsCreateFormOpen(false);
+    };
+
+    const updateClass = (id: string, data: ClassData) => {
+        setAllClasses(
+            allClasses.map((item) => {
+                if (item.id === id) {
+                    return data;
+                }
+                return item;
+            })
+        );
+    };
+
+    const deleteClass = (id: string) => {
+        setAllClasses(allClasses.filter((item) => item.id !== id));
+    };
+
     return (
         <>
             <h3 className="heading3 mt-16  max-md:heading4 max-md:mt-6">
@@ -191,9 +50,17 @@ const ClassContents = () => {
             <p className="bodyMediumMedium max-md:bodySmallMedium text-text-dark-secondary mt-[10px]">
                 Jelajahi Dunia Pengetahuan Melalui Pilihan Kami!
             </p>
+
+            <Sheet
+                open={isCreateFormOpen}
+                onOpenChange={(newValue) => setIsCreateFormOpen(newValue)}
+            >
+                <SheetTrigger className="heading6 bg-secondary text-text-light-primary py-2 px-6 rounded-full mt-4">Tambah Kelas</SheetTrigger>
+                <ClassForm onCreate={createClass} />
+            </Sheet>
             <div className="flex gap-9 mt-8 max-md:mt-6 overflow-x-scroll scrollbar-hide">
                 {categories.map((category) => (
-                    <div className="flex flex-col">
+                    <div key={category} className="flex flex-col">
                         <p
                             className={`${
                                 selected === category
@@ -213,11 +80,22 @@ const ClassContents = () => {
                     </div>
                 ))}
             </div>
+            {allClasses.length == 0 && (
+                <p className="heading5 text-text-dark-secondary mt-6">
+                    Nampaknya Belum ada kelas yang tersedia
+                </p>
+            )}
             <div className="mt-8 mb-16 gap-[24px] grid max-lg:grid-cols-1 max-xl:grid-cols-2 max-2xl:grid-cols-3 grid-cols-4 max-md:gap-[20px]">
                 {allClasses.map((item) => (
-                    <ClassCard item={item} />
+                    <ClassCard
+                        key={item.id}
+                        item={item}
+                        onUpdate={updateClass}
+                        onDelete={deleteClass}
+                    />
                 ))}
             </div>
+            
         </>
     );
 };

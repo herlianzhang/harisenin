@@ -14,7 +14,7 @@ import { useNavigate } from "react-router-dom";
 const formSchema = z.object({
     email: z.string(),
     password: z.string().min(4),
-});
+});``
 
 const Login = () => {
     const navigate = useNavigate();
