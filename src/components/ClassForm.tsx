@@ -25,7 +25,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import DButton from "./DButton";
 import TextField from "./TextField";
 import { getRandomInt } from "@/lib/utils";
-import * as uuid from "uuid";
 import {
     SheetContent,
     SheetDescription,
@@ -101,7 +100,6 @@ const ClassForm = ({ previousData, onUpdate, onCreate }: Props) => {
                 content9,
             ];
             const result: ClassData = {
-                id: uuid.v4(),
                 background:
                     backgrounds[getRandomInt(0, backgrounds.length - 1)],
                 title: values.title,
@@ -121,7 +119,6 @@ const ClassForm = ({ previousData, onUpdate, onCreate }: Props) => {
             onCreate(result);
         } else if (onUpdate && previousData?.id) {
             onUpdate(previousData.id, {
-                id: previousData.id,
                 background: previousData.background,
                 title: values.title,
                 description: values.description,
