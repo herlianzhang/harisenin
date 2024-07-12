@@ -3,7 +3,9 @@ import { Sheet, SheetTrigger } from "@/components/ui/sheet";
 import ClassForm from "./ClassForm";
 import { ClassData } from "@/lib/ClassData";
 import { useEffect, useState } from "react";
-import { useClassStore } from "@/stores/classStore";
+import { deleteData, getData, postData, putData } from "../services/api";
+import { useSelector, useDispatch } from "react-redux";
+import { AppDispatch, RootState } from "@/store/redux/store";
 
 const ClassContents = () => {
     const [isCreateFormOpen, setIsCreateFormOpen] = useState(false);
@@ -15,24 +17,25 @@ const ClassContents = () => {
         "Bisnis",
     ];
     const selected = categories[0];
-    const { datas } = useClassStore();
-    const { fetchDatas, isLoading, postClass, putClass, delClass } = useClassStore();
+
+    const { datas, isLoading } = useSelector((state: RootState) => state);
+    const dispatch = useDispatch<AppDispatch>();
 
     useEffect(() => {
-        fetchDatas();
+        dispatch(getData());
     }, []);
 
     const createClass = (data: ClassData) => {
-        postClass(data);
+        dispatch(postData(data));
         setIsCreateFormOpen(false);
     };
 
     const updateClass = (id: string, data: ClassData) => {
-        putClass(id, data);
+        dispatch(putData({ id, data }));
     };
 
     const deleteClass = (id: string) => {
-        delClass(id);
+        dispatch(deleteData(id));
     };
 
     return (
